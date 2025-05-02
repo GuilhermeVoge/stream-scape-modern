@@ -2,7 +2,6 @@
 import React from 'react';
 import { Play, Info } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import lotrImage from '/lovable-uploads/5a9ceb71-65bd-4105-95ba-f838f7ffe71a.png';
 
 const HeroBanner = () => {
   return (
@@ -10,7 +9,7 @@ const HeroBanner = () => {
       {/* Image background */}
       <div className="absolute inset-0">
         <img 
-          src={lotrImage} 
+          src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=1920" 
           alt="The Lord of the Rings" 
           className="w-full h-full object-cover object-center"
         />
