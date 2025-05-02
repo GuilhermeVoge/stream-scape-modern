@@ -23,29 +23,29 @@ const Footer = () => {
         
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm text-gray-400 mb-8">
           <ul className="space-y-2">
-            <li><a href="#" className="hover:text-gray-300">Audio Description</a></li>
-            <li><a href="#" className="hover:text-gray-300">Investor Relations</a></li>
-            <li><a href="#" className="hover:text-gray-300">Legal Notices</a></li>
+            <li><a href="#" className="hover:text-gray-300">Audiodescrição</a></li>
+            <li><a href="#" className="hover:text-gray-300">Relações com Investidores</a></li>
+            <li><a href="#" className="hover:text-gray-300">Avisos Legais</a></li>
           </ul>
           <ul className="space-y-2">
-            <li><a href="#" className="hover:text-gray-300">Help Center</a></li>
-            <li><a href="#" className="hover:text-gray-300">Jobs</a></li>
-            <li><a href="#" className="hover:text-gray-300">Cookie Preferences</a></li>
+            <li><a href="#" className="hover:text-gray-300">Central de Ajuda</a></li>
+            <li><a href="#" className="hover:text-gray-300">Carreiras</a></li>
+            <li><a href="#" className="hover:text-gray-300">Preferências de Cookies</a></li>
           </ul>
           <ul className="space-y-2">
-            <li><a href="#" className="hover:text-gray-300">Gift Cards</a></li>
-            <li><a href="#" className="hover:text-gray-300">Terms of Use</a></li>
-            <li><a href="#" className="hover:text-gray-300">Corporate Information</a></li>
+            <li><a href="#" className="hover:text-gray-300">Cartão Presente</a></li>
+            <li><a href="#" className="hover:text-gray-300">Termos de Uso</a></li>
+            <li><a href="#" className="hover:text-gray-300">Informações Corporativas</a></li>
           </ul>
           <ul className="space-y-2">
-            <li><a href="#" className="hover:text-gray-300">Media Center</a></li>
-            <li><a href="#" className="hover:text-gray-300">Privacy</a></li>
-            <li><a href="#" className="hover:text-gray-300">Contact Us</a></li>
+            <li><a href="#" className="hover:text-gray-300">Centro de Mídia</a></li>
+            <li><a href="#" className="hover:text-gray-300">Privacidade</a></li>
+            <li><a href="#" className="hover:text-gray-300">Entre em Contato</a></li>
           </ul>
         </div>
         
         <div className="text-center text-xs text-gray-500">
-          <p>© {new Date().getFullYear()} StreamScape. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} StreamScape. Todos os direitos reservados.</p>
         </div>
       </div>
     </footer>

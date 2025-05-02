@@ -15,10 +15,10 @@ const Index = () => {
         <HeroBanner />
         
         <div className="mt-8">
-          <MovieRow title="Trending Now" movies={trendingNow} />
-          <MovieRow title="Top Rated" movies={topRated} />
-          <MovieRow title="New Releases" movies={newReleases} />
-          <MovieRow title="Classics" movies={classics} />
+          <MovieRow title="Em Alta" movies={trendingNow} />
+          <MovieRow title="Melhor Avaliados" movies={topRated} />
+          <MovieRow title="Lançamentos" movies={newReleases} />
+          <MovieRow title="Clássicos" movies={classics} />
         </div>
       </main>
       

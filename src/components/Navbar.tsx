@@ -31,11 +31,11 @@ const Navbar = () => {
         <Link to="/" className="text-streaming-accent font-bold text-2xl">StreamScape</Link>
         
         <nav className="hidden md:flex space-x-6">
-          <Link to="/" className="text-white hover:text-gray-300">Home</Link>
-          <Link to="/tv" className="text-white hover:text-gray-300">TV Shows</Link>
-          <Link to="/movies" className="text-white hover:text-gray-300">Movies</Link>
-          <Link to="/new" className="text-white hover:text-gray-300">New & Popular</Link>
-          <Link to="/mylist" className="text-white hover:text-gray-300">My List</Link>
+          <Link to="/" className="text-white hover:text-gray-300">Início</Link>
+          <Link to="/tv" className="text-white hover:text-gray-300">Séries</Link>
+          <Link to="/movies" className="text-white hover:text-gray-300">Filmes</Link>
+          <Link to="/new" className="text-white hover:text-gray-300">Novidades</Link>
+          <Link to="/mylist" className="text-white hover:text-gray-300">Minha Lista</Link>
         </nav>
       </div>
       

@@ -10,7 +10,7 @@ const HeroBanner = () => {
       <div className="absolute inset-0">
         <img 
           src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=1920" 
-          alt="The Lord of the Rings" 
+          alt="O Senhor dos Anéis" 
           className="w-full h-full object-cover object-center"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
@@ -22,8 +22,8 @@ const HeroBanner = () => {
         <div className="animate-slide-up">
           <h2 className="text-sm md:text-base text-streaming-text/80 mb-1">Imagens da Saga</h2>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-white">
-            The Lord of the Rings:<br />
-            <span className="text-3xl md:text-4xl lg:text-5xl">The Fellowship of the Ring</span>
+            O Senhor dos Anéis:<br />
+            <span className="text-3xl md:text-4xl lg:text-5xl">A Sociedade do Anel</span>
           </h1>
           
           <div className="flex items-center space-x-2 mb-4">
@@ -32,17 +32,17 @@ const HeroBanner = () => {
           </div>
           
           <p className="text-sm md:text-base text-gray-300 mb-6 max-w-2xl">
-            A meek Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth from the Dark Lord Sauron.
+            Um humilde hobbit do Condado e oito companheiros partem em uma jornada para destruir o poderoso Um Anel e salvar a Terra-média do Senhor Sombrio Sauron.
           </p>
           
           <div className="flex space-x-4 mb-6">
             <Button className="bg-white hover:bg-white/90 text-black rounded-md flex items-center space-x-2 px-6 py-5">
               <Play size={20} className="fill-black" />
-              <span className="font-semibold">Play</span>
+              <span className="font-semibold">Assistir</span>
             </Button>
             <Button variant="outline" className="bg-gray-500/30 hover:bg-gray-500/40 text-white border-none rounded-md flex items-center space-x-2 px-6 py-5">
               <Info size={20} />
-              <span className="font-semibold">More Info</span>
+              <span className="font-semibold">Mais Informações</span>
             </Button>
           </div>
           
@@ -50,15 +50,15 @@ const HeroBanner = () => {
           <div className="flex flex-wrap gap-3">
             <Button variant="outline" size="sm" className="bg-gray-800/50 hover:bg-gray-700 text-white border-gray-600 flex items-center space-x-2">
               <FileCode size={16} />
-              <span>Download HTML</span>
+              <span>Baixar HTML</span>
             </Button>
             <Button variant="outline" size="sm" className="bg-gray-800/50 hover:bg-gray-700 text-white border-gray-600 flex items-center space-x-2">
               <FileCode size={16} />
-              <span>Download CSS</span>
+              <span>Baixar CSS</span>
             </Button>
             <Button variant="outline" size="sm" className="bg-gray-800/50 hover:bg-gray-700 text-white border-gray-600 flex items-center space-x-2">
               <FileImage size={16} />
-              <span>Download JPEG</span>
+              <span>Baixar JPEG</span>
             </Button>
           </div>
         </div>
