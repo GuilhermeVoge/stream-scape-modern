@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Play, Info } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { topRated } from '@/data/movies';
@@ -10,16 +10,26 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { useEffect } from 'react';
 
 const HeroBanner = () => {
+  const [currentMovieIndex, setCurrentMovieIndex] = useState(0);
+  const currentMovie = topRated[currentMovieIndex];
+
+  // Handle carousel slide change
+  const handleSlideChange = (index: number) => {
+    setCurrentMovieIndex(index);
+  };
+
   return (
     <div className="relative w-full h-[80vh] overflow-hidden">
-      {/* Image background */}
-      <div className="absolute inset-0">
+      {/* Dynamic background image based on current movie */}
+      <div className="absolute inset-0 transition-all duration-500">
         <img 
-          src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=1920" 
-          alt="Filmes em Destaque" 
+          src={currentMovie.posterPath} 
+          alt={currentMovie.title} 
           className="w-full h-full object-cover object-center"
+          style={{ opacity: 0.6 }}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-streaming-dark via-transparent to-transparent" />
@@ -31,20 +41,26 @@ const HeroBanner = () => {
           <h2 className="text-sm md:text-base text-streaming-text/80 mb-1">Filmes em Destaque</h2>
           
           <div className="mb-6">
-            <Carousel className="w-full max-w-3xl">
+            <Carousel 
+              className="w-full max-w-3xl"
+              onSlideChange={(api) => {
+                const currentIndex = api?.selectedScrollSnap() || 0;
+                handleSlideChange(currentIndex % topRated.length);
+              }}
+            >
               <CarouselContent>
-                {topRated.slice(0, 4).map((movie) => (
-                  <CarouselItem key={movie.id} className="md:basis-1/2 lg:basis-1/3">
+                {topRated.map((movie, index) => (
+                  <CarouselItem key={movie.id} className="basis-full">
                     <div className="p-1">
                       <div className="rounded-lg overflow-hidden flex flex-col items-center">
                         <img 
                           src={movie.posterPath} 
                           alt={movie.title} 
-                          className="h-48 object-cover"
+                          className="h-64 object-cover"
                         />
                         <div className="p-2 text-center">
-                          <h3 className="font-semibold text-white">{movie.title}</h3>
-                          <p className="text-xs text-gray-300">{movie.year} | {movie.rating}%</p>
+                          <h3 className="font-semibold text-white text-lg">{movie.title}</h3>
+                          <p className="text-sm text-gray-300">{movie.year} | {movie.rating}% | Dir. {movie.director}</p>
                         </div>
                       </div>
                     </div>
