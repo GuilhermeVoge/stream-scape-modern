@@ -1,7 +1,15 @@
 
 import React from 'react';
-import { Play, Info, Download, FileCode, FileImage } from 'lucide-react';
+import { Play, Info } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { topRated } from '@/data/movies';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const HeroBanner = () => {
   return (
@@ -9,8 +17,8 @@ const HeroBanner = () => {
       {/* Image background */}
       <div className="absolute inset-0">
         <img 
-          src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=1920" 
-          alt="O Senhor dos Anéis" 
+          src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=1920" 
+          alt="Filmes em Destaque" 
           className="w-full h-full object-cover object-center"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
@@ -18,21 +26,43 @@ const HeroBanner = () => {
       </div>
       
       {/* Content */}
-      <div className="relative h-full flex flex-col justify-center px-6 md:px-12 lg:px-24 max-w-3xl">
+      <div className="relative h-full flex flex-col justify-center px-6 md:px-12 lg:px-24 max-w-4xl">
         <div className="animate-slide-up">
-          <h2 className="text-sm md:text-base text-streaming-text/80 mb-1">Imagens da Saga</h2>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-white">
-            O Senhor dos Anéis:<br />
-            <span className="text-3xl md:text-4xl lg:text-5xl">A Sociedade do Anel</span>
-          </h1>
+          <h2 className="text-sm md:text-base text-streaming-text/80 mb-1">Filmes em Destaque</h2>
+          
+          <div className="mb-6">
+            <Carousel className="w-full max-w-3xl">
+              <CarouselContent>
+                {topRated.slice(0, 4).map((movie) => (
+                  <CarouselItem key={movie.id} className="md:basis-1/2 lg:basis-1/3">
+                    <div className="p-1">
+                      <div className="rounded-lg overflow-hidden flex flex-col items-center">
+                        <img 
+                          src={movie.posterPath} 
+                          alt={movie.title} 
+                          className="h-48 object-cover"
+                        />
+                        <div className="p-2 text-center">
+                          <h3 className="font-semibold text-white">{movie.title}</h3>
+                          <p className="text-xs text-gray-300">{movie.year} | {movie.rating}%</p>
+                        </div>
+                      </div>
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="absolute left-0 bg-black/40 border-none hover:bg-black/60" />
+              <CarouselNext className="absolute right-0 bg-black/40 border-none hover:bg-black/60" />
+            </Carousel>
+          </div>
           
           <div className="flex items-center space-x-2 mb-4">
             <span className="bg-streaming-accent px-1.5 py-0.5 text-xs font-semibold rounded">TOP 10</span>
-            <span className="text-sm text-gray-300">Peter Jackson (Dir.) | Elijah Wood, Ian McKellen</span>
+            <span className="text-sm text-gray-300">Filmes Melhor Avaliados | Aclamados pela Crítica</span>
           </div>
           
           <p className="text-sm md:text-base text-gray-300 mb-6 max-w-2xl">
-            Um humilde hobbit do Condado e oito companheiros partem em uma jornada para destruir o poderoso Um Anel e salvar a Terra-média do Senhor Sombrio Sauron.
+            Confira nossa seleção dos filmes mais bem avaliados de todos os tempos. Uma coleção de obras-primas que definiram o cinema como o conhecemos hoje.
           </p>
           
           <div className="flex space-x-4 mb-6">
@@ -43,22 +73,6 @@ const HeroBanner = () => {
             <Button variant="outline" className="bg-gray-500/30 hover:bg-gray-500/40 text-white border-none rounded-md flex items-center space-x-2 px-6 py-5">
               <Info size={20} />
               <span className="font-semibold">Mais Informações</span>
-            </Button>
-          </div>
-          
-          {/* Download options */}
-          <div className="flex flex-wrap gap-3">
-            <Button variant="outline" size="sm" className="bg-gray-800/50 hover:bg-gray-700 text-white border-gray-600 flex items-center space-x-2">
-              <FileCode size={16} />
-              <span>Baixar HTML</span>
-            </Button>
-            <Button variant="outline" size="sm" className="bg-gray-800/50 hover:bg-gray-700 text-white border-gray-600 flex items-center space-x-2">
-              <FileCode size={16} />
-              <span>Baixar CSS</span>
-            </Button>
-            <Button variant="outline" size="sm" className="bg-gray-800/50 hover:bg-gray-700 text-white border-gray-600 flex items-center space-x-2">
-              <FileImage size={16} />
-              <span>Baixar JPEG</span>
             </Button>
           </div>
         </div>
