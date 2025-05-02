@@ -114,6 +114,18 @@
   }
 }
 
+@layer utilities {
+  /* Add the scrollbar-none utility class */
+  .scrollbar-none {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;  /* Chrome, Safari and Opera */
+  }
+}
+
 @layer components {
   .movie-card {
     @apply relative overflow-hidden rounded-md transition-transform duration-300;
