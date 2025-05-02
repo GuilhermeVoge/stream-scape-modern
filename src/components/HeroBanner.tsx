@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Play, Info } from 'lucide-react';
+import { Play, Info, Download, FileCode, FileImage } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const HeroBanner = () => {
@@ -35,7 +35,7 @@ const HeroBanner = () => {
             A meek Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth from the Dark Lord Sauron.
           </p>
           
-          <div className="flex space-x-4">
+          <div className="flex space-x-4 mb-6">
             <Button className="bg-white hover:bg-white/90 text-black rounded-md flex items-center space-x-2 px-6 py-5">
               <Play size={20} className="fill-black" />
               <span className="font-semibold">Play</span>
@@ -43,6 +43,22 @@ const HeroBanner = () => {
             <Button variant="outline" className="bg-gray-500/30 hover:bg-gray-500/40 text-white border-none rounded-md flex items-center space-x-2 px-6 py-5">
               <Info size={20} />
               <span className="font-semibold">More Info</span>
+            </Button>
+          </div>
+          
+          {/* Download options */}
+          <div className="flex flex-wrap gap-3">
+            <Button variant="outline" size="sm" className="bg-gray-800/50 hover:bg-gray-700 text-white border-gray-600 flex items-center space-x-2">
+              <FileCode size={16} />
+              <span>Download HTML</span>
+            </Button>
+            <Button variant="outline" size="sm" className="bg-gray-800/50 hover:bg-gray-700 text-white border-gray-600 flex items-center space-x-2">
+              <FileCode size={16} />
+              <span>Download CSS</span>
+            </Button>
+            <Button variant="outline" size="sm" className="bg-gray-800/50 hover:bg-gray-700 text-white border-gray-600 flex items-center space-x-2">
+              <FileImage size={16} />
+              <span>Download JPEG</span>
             </Button>
           </div>
         </div>
