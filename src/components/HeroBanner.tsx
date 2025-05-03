@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Play, Info } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { topRated } from '@/data/movies';
@@ -10,16 +10,31 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { useEffect } from 'react';
 
 const HeroBanner = () => {
   const [currentMovieIndex, setCurrentMovieIndex] = useState(0);
+  const [api, setApi] = useState<any>(null);
   const currentMovie = topRated[currentMovieIndex];
 
-  // Handle carousel slide change
-  const handleSlideChange = (index: number) => {
-    setCurrentMovieIndex(index);
-  };
+  // Set up the carousel API and event listeners
+  useEffect(() => {
+    if (!api) return;
+
+    const onSelect = () => {
+      const currentIndex = api.selectedScrollSnap();
+      setCurrentMovieIndex(currentIndex % topRated.length);
+    };
+
+    api.on("select", onSelect);
+    
+    // Initial selection
+    onSelect();
+
+    // Cleanup
+    return () => {
+      api.off("select", onSelect);
+    };
+  }, [api]);
 
   return (
     <div className="relative w-full h-[80vh] overflow-hidden">
@@ -43,10 +58,7 @@ const HeroBanner = () => {
           <div className="mb-6">
             <Carousel 
               className="w-full max-w-3xl"
-              onSlideChange={(api) => {
-                const currentIndex = api?.selectedScrollSnap() || 0;
-                handleSlideChange(currentIndex % topRated.length);
-              }}
+              setApi={setApi}
             >
               <CarouselContent>
                 {topRated.map((movie, index) => (
