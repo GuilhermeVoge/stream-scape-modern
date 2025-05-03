@@ -54,11 +54,11 @@ export default {
 					foreground: 'hsl(var(--card-foreground))'
 				},
 				streaming: {
-					DEFAULT: '#E50914',
-					hover: '#F40612',
+					DEFAULT: '#CBC3E3',
+					hover: '#BEB4D4',
 					dark: '#141414',
 					light: '#1F1F1F',
-					accent: '#E50914',
+					accent: '#CBC3E3',
 					text: '#FFFFFF',
 					muted: '#6E6E6E'
 				},

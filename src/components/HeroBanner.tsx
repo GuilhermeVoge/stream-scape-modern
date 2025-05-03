@@ -85,7 +85,7 @@ const HeroBanner = () => {
           </div>
           
           <div className="flex items-center space-x-2 mb-4">
-            <span className="bg-streaming-accent px-1.5 py-0.5 text-xs font-semibold rounded">TOP 10</span>
+            <span className="bg-[#CBC3E3] px-1.5 py-0.5 text-xs font-semibold rounded">TOP 10</span>
             <span className="text-sm text-gray-300">Filmes Melhor Avaliados | Aclamados pela Crítica</span>
           </div>
           
