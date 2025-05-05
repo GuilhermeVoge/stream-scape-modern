@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import Navbar from '@/components/Navbar';
@@ -21,6 +20,30 @@ const Index = () => {
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
     window.scrollTo(0, 0);
+  };
+
+  // Calculate pagination array safely
+  const getPaginationItems = () => {
+    if (!data?.pagination?.pages) return [];
+    
+    const totalPages = data.pagination.pages;
+    const maxPagesToShow = 5;
+    
+    if (totalPages <= maxPagesToShow) {
+      // If we have fewer pages than max, show all of them
+      return Array.from({ length: totalPages }, (_, i) => i + 1);
+    } else {
+      // Otherwise, calculate which pages to show
+      let startPage = Math.max(1, currentPage - 2);
+      let endPage = startPage + maxPagesToShow - 1;
+      
+      if (endPage > totalPages) {
+        endPage = totalPages;
+        startPage = Math.max(1, endPage - maxPagesToShow + 1);
+      }
+      
+      return Array.from({ length: endPage - startPage + 1 }, (_, i) => startPage + i);
+    }
   };
   
   return (
@@ -46,7 +69,7 @@ const Index = () => {
               <MovieRow title="Melhor Avaliados" movies={topRated} />
               <MovieRow title="Clássicos" movies={classics} />
               
-              {data && data.pagination && (
+              {data?.pagination && (
                 <div className="mt-12">
                   <Pagination>
                     <PaginationContent>
@@ -59,27 +82,19 @@ const Index = () => {
                         </PaginationItem>
                       )}
                       
-                      {[...Array(Math.min(5, data.pagination.pages))].map((_, index) => {
-                        const pageNumber = currentPage > 3 ? 
-                          (currentPage - 2) + index : 
-                          index + 1;
-                          
-                        if (pageNumber > data.pagination.pages) return null;
-                        
-                        return (
-                          <PaginationItem key={pageNumber}>
-                            <PaginationLink 
-                              isActive={pageNumber === currentPage}
-                              onClick={() => handlePageChange(pageNumber)}
-                              className="cursor-pointer"
-                            >
-                              {pageNumber}
-                            </PaginationLink>
-                          </PaginationItem>
-                        );
-                      })}
+                      {getPaginationItems().map((pageNumber) => (
+                        <PaginationItem key={pageNumber}>
+                          <PaginationLink 
+                            isActive={pageNumber === currentPage}
+                            onClick={() => handlePageChange(pageNumber)}
+                            className="cursor-pointer"
+                          >
+                            {pageNumber}
+                          </PaginationLink>
+                        </PaginationItem>
+                      ))}
                       
-                      {currentPage < data.pagination.pages && (
+                      {data && currentPage < data.pagination.pages && (
                         <PaginationItem>
                           <PaginationNext 
                             onClick={() => handlePageChange(currentPage + 1)}
