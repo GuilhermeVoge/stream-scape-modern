@@ -54,7 +54,7 @@ const Index = () => {
       <main className="pb-10">
         <HeroBanner />
         
-        <div className="mt-8">
+        <div className="mt-8 px-4 md:px-6 lg:px-10">
           {isLoading ? (
             <div className="flex justify-center items-center h-40">
               <div className="text-streaming-accent">Carregando filmes...</div>
@@ -73,7 +73,7 @@ const Index = () => {
               {data?.pagination && (
                 <div className="mt-12">
                   <Pagination>
-                    <PaginationContent>
+                    <PaginationContent className="flex-wrap justify-center gap-y-2">
                       {currentPage > 1 && (
                         <PaginationItem>
                           <PaginationPrevious 
