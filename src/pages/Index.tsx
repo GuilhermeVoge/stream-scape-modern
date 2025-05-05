@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+
+import React, { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import Navbar from '@/components/Navbar';
 import HeroBanner from '@/components/HeroBanner';
@@ -64,7 +65,7 @@ const Index = () => {
             </div>
           ) : (
             <>
-              {data && <MovieRow title="API Slideworks" movies={data.data} />}
+              <MovieRow title="Destaques" movies={data?.data || []} />
               <MovieRow title="Em Alta" movies={trendingNow} />
               <MovieRow title="Melhor Avaliados" movies={topRated} />
               <MovieRow title="Clássicos" movies={classics} />
