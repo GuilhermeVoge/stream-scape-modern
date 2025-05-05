@@ -28,7 +28,10 @@ const Navbar = () => {
       )}
     >
       <div className="flex items-center space-x-8">
-        <Link to="/" className="text-streaming-accent font-bold text-2xl">StreamScape</Link>
+        <Link to="/" className="text-streaming-accent font-bold text-2xl flex items-center">
+          <span className="mr-2">Slideworks</span>
+          <span className="text-white">Top Filmes</span>
+        </Link>
         
         <nav className="hidden md:flex space-x-6">
           <Link to="/" className="text-white hover:text-gray-300">Início</Link>

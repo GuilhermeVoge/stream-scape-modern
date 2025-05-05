@@ -2,15 +2,7 @@
 import React from 'react';
 import MovieCard from './MovieCard';
 import { ChevronRight, ChevronLeft } from 'lucide-react';
-
-interface Movie {
-  id: number;
-  title: string;
-  posterPath: string;
-  year: string;
-  rating?: string;
-  director?: string;
-}
+import { Movie } from '@/api/movieApi';
 
 interface MovieRowProps {
   title: string;
@@ -43,20 +35,18 @@ const MovieRow = ({ title, movies }: MovieRowProps) => {
           <ChevronLeft size={24} className="text-white" />
         </button>
         
-        <div ref={rowRef} className="carousel-container">
-          <div className="carousel-row">
-            {movies.map((movie) => (
-              <MovieCard 
-                key={movie.id}
-                id={movie.id}
-                title={movie.title}
-                posterPath={movie.posterPath}
-                year={movie.year}
-                rating={movie.rating}
-                director={movie.director}
-              />
-            ))}
-          </div>
+        <div ref={rowRef} className="flex overflow-x-scroll scrollbar-hide py-4 px-6 space-x-4">
+          {movies.map((movie) => (
+            <MovieCard 
+              key={movie.id}
+              id={movie.id}
+              title={movie.title}
+              posterPath={movie.posterPath || 'https://via.placeholder.com/300x450?text=No+Poster'}
+              year={movie.year || 'N/A'}
+              rating={movie.rating}
+              director={movie.director}
+            />
+          ))}
         </div>
         
         <button 
