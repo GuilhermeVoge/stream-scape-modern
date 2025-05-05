@@ -7,7 +7,7 @@ import MovieRow from '@/components/MovieRow';
 import Footer from '@/components/Footer';
 import { fetchMovies } from '@/api/movieApi';
 import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from '@/components/ui/pagination';
-import { trendingNow, topRated, classics } from '@/data/movies';
+import { trendingNow, topRated, classics, newReleases } from '@/data/movies';
 
 const Index = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -65,10 +65,10 @@ const Index = () => {
             </div>
           ) : (
             <>
-              <MovieRow title="Destaques" movies={data?.data || []} />
               <MovieRow title="Em Alta" movies={trendingNow} />
               <MovieRow title="Melhor Avaliados" movies={topRated} />
               <MovieRow title="Clássicos" movies={classics} />
+              <MovieRow title="Novos Lançamentos" movies={newReleases} />
               
               {data?.pagination && (
                 <div className="mt-12">
